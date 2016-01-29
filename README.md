@@ -4,6 +4,18 @@ CyrillicToTranslitJS
 Simple javascript function for converting Cyrillic symbols to Translit
 
 ## Simple to use
-CyrillicToTranslit('привет мир!');
+cyrillicToTranslit().transform(str, spaceReplacement);
+* str - string which should be transformed
+* spaceReplacement - symbol for space replacement
 
-**return string**: privet mir!
+```javascript
+    cyrillicToTranslit().transform('привет мир!');
+    
+    >privet mir!
+```
+
+```javascript
+    cyrillicToTranslit().transform('привет мир!', "_")
+    
+    >privet_mir!
+```

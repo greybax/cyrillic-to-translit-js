@@ -1,0 +1,28 @@
+{
+  "name": "cyrillic-to-translit-js",
+  "version": "1.0.0",
+  "description": "Simple javascript function for converting Cyrillic symbols to Translit",
+  "main": "CyrillicToTranslit.js",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.2.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greybax/CyrillicToTranslitJS.git"
+  },
+  "keywords": [
+    "cyrillic",
+    "translit",
+    "transformation"
+  ],
+  "author": "Aleksandr Filatov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greybax/CyrillicToTranslitJS/issues"
+  },
+  "homepage": "https://github.com/greybax/CyrillicToTranslitJS#readme"
+}

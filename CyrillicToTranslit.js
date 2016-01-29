@@ -1,5 +1,8 @@
-﻿var CyrillicToTranslit = function(str) {
-	var _association = {
+﻿'use strict';
+
+module.exports = function cyrillicToTranslit() {
+    
+	var _associations = {
 		"а": "a",
 		"б": "b",
 		"в": "v",
@@ -34,16 +37,30 @@
 		"ю": "yu",
 		"я": "ya" 
 	};
-
-	var new_str = '';
-	for (var i = 0; i < str.length; i++) {
-		var strLowerCase = str[i].toLowerCase();
-		if (typeof _association[strLowerCase] === 'undefined') {
-			new_str += strLowerCase;
-		}  
-		else {
-			new_str += _association[strLowerCase];
-		}
-	}
-	return new_str;
+    
+    return {
+        transform: transform
+    }   
+    
+    function transform(str, spaceReplacement) {
+        if (!str) {
+            return "";
+        }
+        
+        var new_str = "";
+        for (var i = 0; i < str.length; i++) {
+            var strLowerCase = str[i].toLowerCase();
+            if (strLowerCase === " " && spaceReplacement) {
+                new_str += spaceReplacement;
+                continue;
+            }
+            if (typeof _associations[strLowerCase] === 'undefined') {
+                new_str += strLowerCase;
+            }
+            else {
+                new_str += _associations[strLowerCase];
+            }
+        }
+        return new_str;
+    }
 };
