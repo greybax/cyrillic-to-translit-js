@@ -54,7 +54,7 @@ module.exports = function cyrillicToTranslit() {
                 new_str += spaceReplacement;
                 continue;
             }
-            if (typeof _associations[strLowerCase] === 'undefined') {
+            if (!_associations[strLowerCase]) {
                 new_str += strLowerCase;
             }
             else {

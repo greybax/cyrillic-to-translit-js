@@ -1,13 +1,26 @@
-# CyrillicToTranslitJS
+# cyrillic-to-translit-js
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Coveralls Status][coveralls-image]][coveralls-url]
+[![Dependency Status][depstat-image]][depstat-url]
+[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
 [npm-url]: https://npmjs.org/package/cyrillic-to-translit-js
 [npm-image]: https://img.shields.io/npm/v/cyrillic-to-translit-js.svg
 
-[travis-url]: https://travis-ci.org/greybax/CyrillicToTranslitJS
-[travis-image]: https://travis-ci.org/greybax/CyrillicToTranslitJS.svg
+[travis-url]: https://travis-ci.org/greybax/cyrillic-to-translit-js
+[travis-image]: https://travis-ci.org/greybax/cyrillic-to-translit-js.svg
+
+[coveralls-url]: https://coveralls.io/r/greybax/cyrillic-to-translit-js
+[coveralls-image]: https://img.shields.io/coveralls/greybax/cyrillic-to-translit-js.svg
+
+[depstat-url]: https://david-dm.org/greybax/cyrillic-to-translit-js
+[depstat-image]: https://david-dm.org/greybax/cyrillic-to-translit-js.svg
+
+[depstat-dev-url]: https://david-dm.org/greybax/cyrillic-to-translit-js
+[depstat-dev-image]: https://david-dm.org/greybax/cyrillic-to-translit-js/dev-status.svg
+
 
 Simple javascript function for converting Cyrillic symbols to Translit
 
