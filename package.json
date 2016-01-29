@@ -11,10 +11,11 @@
     "should": "^8.2.1"
   },
   "scripts": {
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "mocha"
+    "test": "mocha",
+    "tdd": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
