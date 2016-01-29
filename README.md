@@ -1,5 +1,13 @@
-CyrillicToTranslitJS
-====================
+# CyrillicToTranslitJS
+
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+
+[npm-url]: https://npmjs.org/package/cyrillic-to-translit-js
+[npm-image]: https://img.shields.io/npm/v/cyrillic-to-translit-js.svg
+
+[travis-url]: https://travis-ci.org/greybax/CyrillicToTranslitJS
+[travis-image]: https://travis-ci.org/greybax/CyrillicToTranslitJS.svg
 
 Simple javascript function for converting Cyrillic symbols to Translit
 
