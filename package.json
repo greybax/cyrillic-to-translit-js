@@ -1,6 +1,6 @@
 {
   "name": "cyrillic-to-translit-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple javascript function for converting Cyrillic symbols to Translit",
   "main": "CyrillicToTranslit.js",
   "devDependencies": {
