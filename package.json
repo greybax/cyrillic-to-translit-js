@@ -5,11 +5,15 @@
   "main": "CyrillicToTranslit.js",
   "devDependencies": {
     "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "mocha-lcov-reporter": "^1.0.0",
     "should": "^8.2.1"
   },
   "scripts": {
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
     "test": "mocha"
   },
   "repository": {

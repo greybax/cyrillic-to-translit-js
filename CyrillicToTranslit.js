@@ -40,7 +40,7 @@ module.exports = function cyrillicToTranslit() {
     
     return {
         transform: transform
-    }   
+    }
     
     function transform(str, spaceReplacement) {
         if (!str) {
