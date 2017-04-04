@@ -35,9 +35,9 @@ module.exports = function cyrillicToTranslit() {
 		"ш": "sh",
 		"щ": "sh'",
 		"ъ": "",
-		"ы": "",
+		"ы": "i",
 		"ь": "",
-		"э": "",
+		"э": "e",
 		"ю": "yu",
 		"я": "ya" 
 	};
