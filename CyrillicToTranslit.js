@@ -50,8 +50,6 @@ module.exports = function cyrillicToTranslit() {
         if (!str) {
             return "";
         }
-        // var keys = [];
-        // for(var k in _associations) keys.push(k);
 
         var new_str = "";
         for (var i = 0; i < str.length; i++) {
