@@ -50,7 +50,9 @@ module.exports = function cyrillicToTranslit() {
         if (!str) {
             return "";
         }
-        
+        // var keys = [];
+        // for(var k in _associations) keys.push(k);
+
         var new_str = "";
         for (var i = 0; i < str.length; i++) {
             var strLowerCase = str[i].toLowerCase();
@@ -58,11 +60,12 @@ module.exports = function cyrillicToTranslit() {
                 new_str += spaceReplacement;
                 continue;
             }
-            if (!_associations[strLowerCase]) {
+            var new_letter = _associations[strLowerCase]
+            if ("undefined" === typeof new_letter) {
                 new_str += strLowerCase;
             }
             else {
-                new_str += _associations[strLowerCase];
+                new_str += new_letter;
             }
         }
         return new_str;
