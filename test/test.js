@@ -23,7 +23,7 @@ describe('cyrillicToTranslit', function() {
             assert.equal("uchebnii_material_1!", cyrillicToTranslit().transform("учебный материал 1ьъ!", '_'));
         });
         it('should return translit when first parameter cyrillic whith using ъ', function () {
-            assert.equal("novi_podezd", cyrillicToTranslit().transform("новый подъезд", '_'));
+            assert.equal("novii_podezd", cyrillicToTranslit().transform("новый подъезд", '_'));
         });
         it('should return translit when first parameter cyrillic whith using ь', function () {
             assert.equal("ploхaya_svyaz", cyrillicToTranslit().transform("плохая связь", '_'));
