@@ -19,6 +19,9 @@ describe('cyrillicToTranslit', function() {
         it('should return translit when first parameter cyrillic', function () {
             assert.equal("privet mir!", cyrillicToTranslit().transform("привет мир!"));
         });
+        it('should return translit when first parameter cyrillic whith using ыьъ', function () {
+            assert.equal("uchebnii_material_1!", cyrillicToTranslit().transform("учебный материал 1ьъ!", '_'));
+        });
         it('should return translit with replaced " " on "_"', function () {
             assert.equal("privet_mir!", cyrillicToTranslit().transform("привет мир!", "_"));
         });
