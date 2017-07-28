@@ -42,3 +42,12 @@ cyrillicToTranslit().transform(str, spaceReplacement);
     
     >privet_mir!
 ```
+
+## Credits
+
+* [kunashir](https://github.com/kunashir)
+* [vasergen](https://github.com/vasergen)
+
+## License
+
+MIT © Aleksandr Filatov [alfilatov.com](http://alfilatov.com)
