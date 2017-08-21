@@ -46,8 +46,8 @@ cyrillicToTranslit().transform(str, spaceReplacement);
 ## Credits
 
 * [kunashir](https://github.com/kunashir)
-* [vasergen](https://github.com/vasergen)
-* [nitruxa](https://github.com/nitruxa)
+* [Vasyl Gendzeliuk](https://github.com/vasergen)
+* [Nikita Svesnikov](https://github.com/nitruxa)
 
 ## License
 
