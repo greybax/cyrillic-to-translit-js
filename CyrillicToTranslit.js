@@ -41,10 +41,6 @@ module.exports = function cyrillicToTranslit() {
     "я": "ya"
   };
 
-  return {
-    transform: transform
-  }
-
   function transform(str, spaceReplacement) {
     if (!str) {
       return "";
@@ -57,7 +53,7 @@ module.exports = function cyrillicToTranslit() {
         new_str += spaceReplacement;
         continue;
       }
-      let new_letter = _associations[strLowerCase]
+      let new_letter = _associations[strLowerCase];
       if ("undefined" === typeof new_letter) {
         new_str += strLowerCase;
       }
@@ -67,4 +63,8 @@ module.exports = function cyrillicToTranslit() {
     }
     return new_str;
   }
+
+  return {
+    transform: transform
+  };
 };
