@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>greybax/cyrillic-to-translit-js</title>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous"
+  >
+  <style>
+    .container-fluid {
+      max-width: 960px;
+    }
+
+    .column {
+      margin-bottom: 20px;
+    }
+
+    #source, #result {
+      height: 30vh;
+      min-height: 100px;
+    }
+
+    @media (max-width: 767px) {
+      .navbar-brand {
+        float: none;
+        padding-bottom: 0;
+      }
+
+      .navbar-text {
+        margin-top: 0;
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          greybax/cyrillic-to-translit-js
+        </div>
+        <p class="navbar-text">
+          Simple javascript function for converting Cyrillic symbols to Translit
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="main container-fluid">
+    <div class="row">
+      <div class="column col-sm-6">
+        <textarea class="form-control" id="source"
+          placeholder="Paste Cyrillic text here"
+        ></textarea>
+      </div>
+      <div class="column col-sm-6">
+        <textarea class="form-control" id="result" 
+          readonly 
+          placeholder="Get converted text here"
+        ></textarea>
+      </div>
+    </div>
+    
+    <div class="text-center">
+      <a class="github-button" 
+        href="https://github.com/greybax" 
+        aria-label="Follow @greybax on GitHub"
+      >Follow @greybax</a>
+
+      <a class="github-button" 
+        href="https://github.com/greybax/cyrillic-to-translit-js" 
+        data-icon="octicon-star" 
+        aria-label="Star greybax/cyrillic-to-translit-js on GitHub"
+      >Star</a>
+
+      <a class="github-button" 
+        href="https://github.com/greybax/cyrillic-to-translit-js/fork" 
+        data-icon="octicon-repo-forked" 
+        aria-label="Fork greybax/cyrillic-to-translit-js on GitHub"
+      >Fork</a>
+    </div>
+  </div>
+
+  <script>
+    // CommonJS Workaround
+    var module = {};
+
+    function init(cyrillicToTranslit) {
+      var $source = document.querySelector('#source');
+      var $result = document.querySelector('#result');
+
+      $source.addEventListener('input', function(e) {
+        $result.value = cyrillicToTranslit.transform(e.target.value);
+      });
+    }
+  </script>
+
+  <script 
+    src="https://unpkg.com/cyrillic-to-translit-js@latest/CyrillicToTranslit.js"
+    onload="init(module.exports())"
+  ></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
