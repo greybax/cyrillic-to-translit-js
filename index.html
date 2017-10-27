@@ -20,6 +20,10 @@
       margin-bottom: 20px;
     }
 
+    .space-replacement {
+      margin-top: 20px;
+    }
+
     #source, #result {
       height: 30vh;
       min-height: 100px;
@@ -58,6 +62,10 @@
         <textarea class="form-control" id="source"
           placeholder="Paste Cyrillic text here"
         ></textarea>
+        <div class="space-replacement input-group">
+          <span class="input-group-addon">Space replacement</span>
+          <input type="text" class="form-control text-center" id="space-rep">
+        </div>
       </div>
       <div class="column col-sm-6">
         <textarea class="form-control" id="result" 
@@ -93,11 +101,23 @@
 
     function init(cyrillicToTranslit) {
       var $source = document.querySelector('#source');
+      var $spaceRep = document.querySelector('#space-rep');
       var $result = document.querySelector('#result');
 
+      var value;
+      var spaceRep;
+
       $source.addEventListener('input', function(e) {
-        $result.value = cyrillicToTranslit.transform(e.target.value);
+        update(value = e.target.value, spaceRep);
       });
+
+      $spaceRep.addEventListener('input', function(e) {
+        update(value, spaceRep = e.target.value);
+      })
+
+      function update(value, spaceRep) {
+        $result.value = cyrillicToTranslit.transform(value, spaceRep);
+      }
     }
   </script>
 
