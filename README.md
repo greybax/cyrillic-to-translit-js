@@ -26,6 +26,8 @@
 
 Simple javascript function for converting Cyrillic symbols to Translit
 
+[Demo page](https://greybax.github.io/cyrillic-to-translit-js)
+
 ## Simple to use
 cyrillicToTranslit().transform(str, spaceReplacement);
 * str - string which should be transformed
@@ -48,6 +50,7 @@ cyrillicToTranslit().transform(str, spaceReplacement);
 * [kunashir](https://github.com/kunashir)
 * [Vasyl Gendzeliuk](https://github.com/vasergen)
 * [Nikita Svesnikov](https://github.com/nitruxa)
+* [Igor Deryabin](https://github.com/rodweb)
 
 ## License
 
