@@ -1,7 +1,9 @@
 ﻿'use strict';
 
-module.exports = function cyrillicToTranslit() {
-  const _associations = {
+module.exports = function cyrillicToTranslit(config) {
+  const _preset = config ? config.preset : "ru";
+
+  const _firstLetterAssociations = {
     "а": "a",
     "б": "b",
     "в": "v",
@@ -38,8 +40,34 @@ module.exports = function cyrillicToTranslit() {
     "ь": "",
     "э": "e",
     "ю": "yu",
-    "я": "ya"
+    "я": "ya",
   };
+
+  if (_preset === "uk") {
+    Object.assign(_firstLetterAssociations, {
+      "г": "h",
+      "и": "y",
+      "й": "y",
+      "ц": "ts",
+      "щ": "shch",
+      "х": "kh",
+      "'": "",
+      "’": "",
+      "ʼ": "",
+    });
+  }
+
+  const _associations = Object.assign({}, _firstLetterAssociations);
+
+  if (_preset === "uk") {
+    Object.assign(_associations, {
+      "є": "ie",
+      "ї": "i",
+      "й": "i",
+      "ю": "iu",
+      "я": "ia",
+    });
+  }
 
   function transform(str, spaceReplacement) {
     if (!str) {
@@ -53,7 +81,9 @@ module.exports = function cyrillicToTranslit() {
         new_str += spaceReplacement;
         continue;
       }
-      let new_letter = _associations[strLowerCase];
+      let new_letter = _preset === "uk" && strLowerCase === "г" && i > 0 && str[i - 1].toLowerCase() === "з"
+        ? "gh"
+        : (i === 0 ? _firstLetterAssociations : _associations)[strLowerCase];
       if ("undefined" === typeof new_letter) {
         new_str += strLowerCase;
       }

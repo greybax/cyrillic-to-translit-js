@@ -45,12 +45,19 @@ cyrillicToTranslit().transform(str, spaceReplacement);
     >privet_mir!
 ```
 
+```javascript
+    cyrillicToTranslit({ preset: "uk" }).transform('привіт світе!', "_")
+    
+    >pryvit_svite!
+```
+
 ## Credits
 
 * [kunashir](https://github.com/kunashir)
 * [Vasyl Gendzeliuk](https://github.com/vasergen)
 * [Nikita Svesnikov](https://github.com/nitruxa)
 * [Igor Deryabin](https://github.com/rodweb)
+* [makepost](https://github.com/makepost)
 
 ## License
 

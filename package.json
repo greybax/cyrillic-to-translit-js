@@ -27,6 +27,9 @@
     "transformation"
   ],
   "author": "Aleksandr Filatov <greybax@gmail.com>",
+  "contributors": [
+    "makepost <makepost@firemail.cc>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/greybax/CyrillicToTranslitJS/issues"
