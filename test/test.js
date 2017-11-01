@@ -5,11 +5,11 @@ var assert = require('assert');
 var should = require('should');
 
 describe('cyrillicToTranslit', function () {
-  it('cyrillicToTranslit should be a function and have 1 public method transform', function () {
+  it('cyrillicToTranslit should return an object with 1 public method transform', function () {
     var c2t = cyrillicToTranslit();
-    c2t.should.be.a.Function;
+    c2t.should.be.a.Object();
     c2t.should.have.property('transform');
-    c2t.transform.should.be.a.Function;
+    c2t.transform.should.be.a.Function();
   });
   describe('transform', function () {
     it('should return empty string when parameters are empty', function () {
