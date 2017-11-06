@@ -1,8 +1,8 @@
 const assert = require("assert");
 const CyrillicToTranslit = require("..");
 
-describe("uk", function () {
-  it("matches https://pasport.org.ua/vazhlivo/transliteratsiya", function () {
+describe("uk", () => {
+  it("matches https://pasport.org.ua/vazhlivo/transliteratsiya", () => {
     const c2t = new CyrillicToTranslit({ preset: "uk" });
 
     assert.equal(c2t.transform("алушта"), "alushta");
@@ -112,7 +112,7 @@ describe("uk", function () {
     assert.equal(c2t.transform("розгон"), "rozghon");
   });
 
-  it("handles U+0027 as apostrophe", function () {
+  it("handles U+0027 as apostrophe", () => {
     const c2t = new CyrillicToTranslit({ preset: "uk" });
 
     assert.equal(c2t.transform("короп'є"), "koropie");
@@ -120,7 +120,7 @@ describe("uk", function () {
     assert.equal(c2t.transform("знам'янка"), "znamianka");
   });
 
-  it("handles U+2019 as apostrophe", function () {
+  it("handles U+2019 as apostrophe", () => {
     const c2t = new CyrillicToTranslit({ preset: "uk" });
 
     assert.equal(c2t.transform("короп’є"), "koropie");
@@ -128,7 +128,7 @@ describe("uk", function () {
     assert.equal(c2t.transform("знам’янка"), "znamianka");
   });
 
-  it("handles U+02BC as apostrophe", function () {
+  it("handles U+02BC as apostrophe", () => {
     const c2t = new CyrillicToTranslit({ preset: "uk" });
 
     assert.equal(c2t.transform("коропʼє"), "koropie");

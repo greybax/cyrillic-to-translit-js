@@ -74,24 +74,24 @@ module.exports = function cyrillicToTranslit(config) {
       return "";
     }
 
-    let new_str = "";
+    let newStr = "";
     for (let i = 0; i < str.length; i++) {
       let strLowerCase = str[i].toLowerCase();
       if (strLowerCase === " " && spaceReplacement) {
-        new_str += spaceReplacement;
+        newStr += spaceReplacement;
         continue;
       }
-      let new_letter = _preset === "uk" && strLowerCase === "г" && i > 0 && str[i - 1].toLowerCase() === "з"
+      let newLetter = _preset === "uk" && strLowerCase === "г" && i > 0 && str[i - 1].toLowerCase() === "з"
         ? "gh"
         : (i === 0 ? _firstLetterAssociations : _associations)[strLowerCase];
-      if ("undefined" === typeof new_letter) {
-        new_str += strLowerCase;
+      if ("undefined" === typeof newLetter) {
+        newStr += strLowerCase;
       }
       else {
-        new_str += new_letter;
+        newStr += newLetter;
       }
     }
-    return new_str;
+    return newStr;
   }
 
   return {
