@@ -43,9 +43,9 @@ Simple javascript function for converting Cyrillic symbols to Translit
 
 ### transform()
 
-`cyrillicToTranslit().transform(str, spaceReplacement);`
+`cyrillicToTranslit().transform(input, spaceReplacement);`
 
-* `str` - string which should be transformed
+* `input` - string which should be transformed
 * `spaceReplacement` - symbol for space replacement
 
 ## Examples
