@@ -51,21 +51,21 @@ Simple javascript function for converting Cyrillic symbols to Translit
 ## Examples
 
 ```javascript
-    cyrillicToTranslit().transform('привет мир!');
-    
-    >privet mir!
+  cyrillicToTranslit().transform('привет мир!');
+
+  >privet mir!
 ```
 
 ```javascript
-    cyrillicToTranslit().transform('привет мир!', "_")
-    
-    >privet_mir!
+  cyrillicToTranslit().transform('привет мир!', "_")
+
+  >privet_mir!
 ```
 
 ```javascript
-    cyrillicToTranslit({ preset: "uk" }).transform('привіт світе!', "_")
-    
-    >pryvit_svite!
+  cyrillicToTranslit({ preset: "uk" }).transform('привіт світе!', "_")
+
+  >pryvit_svite!
 ```
 
 ## Typescript
