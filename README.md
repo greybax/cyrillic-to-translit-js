@@ -51,9 +51,9 @@ Simple javascript function for converting Cyrillic symbols to Translit
 ## Examples
 
 ```javascript
-  cyrillicToTranslit().transform('привет мир!');
+  cyrillicToTranslit().transform('Привет Мир!');
 
-  >privet mir!
+  >Privet Mir!
 ```
 
 ```javascript
@@ -79,6 +79,8 @@ Typescript supports starting form v2.0.0. See definitions [here](./CyrillicToTra
 * [Nikita Svesnikov](https://github.com/nitruxa)
 * [Igor Deryabin](https://github.com/rodweb)
 * [makepost](https://github.com/makepost)
+* [Aleksey Kislov](https://github.com/evenfrost)
+
 
 ## License
 
