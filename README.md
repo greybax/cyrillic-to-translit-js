@@ -3,6 +3,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/greybax/cyrillic-to-translit-js.svg)](https://greenkeeper.io/)
 
 [![NPM version][npm-image]][npm-url]
+[![NPM Downloads/month][npm-downloads-image]][npm-downloads-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
@@ -10,6 +11,9 @@
 
 [npm-url]: https://npmjs.org/package/cyrillic-to-translit-js
 [npm-image]: https://img.shields.io/npm/v/cyrillic-to-translit-js.svg
+
+[npm-downloads-url]: https://npmjs.org/package/cyrillic-to-translit-js
+[npm-downloads-image]: https://img.shields.io/npm/dm/cyrillic-to-translit-js.svg
 
 [travis-url]: https://travis-ci.org/greybax/cyrillic-to-translit-js
 [travis-image]: https://travis-ci.org/greybax/cyrillic-to-translit-js.svg
