@@ -1,6 +1,6 @@
 # cyrillic-to-translit-js
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/greybax/cyrillic-to-translit-js.svg)](https://greenkeeper.io/)
+[![Codeship Status for greybax/cyrillic-to-translit-js](https://app.codeship.com/projects/9666e180-f1e1-0136-edda-0a4322211bb2/status?branch=master)](https://app.codeship.com/projects/320439)
 
 [![NPM version][npm-image]][npm-url]
 [![NPM Downloads/month][npm-downloads-image]][npm-downloads-url]
