@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>greybax/cyrillic-to-translit-js</title>
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous"
-  >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <style>
     .container-fluid {
       max-width: 960px;
@@ -24,7 +21,8 @@
       margin-top: 20px;
     }
 
-    #source, #result {
+    #source,
+    #result {
       height: 30vh;
       min-height: 100px;
     }
@@ -42,6 +40,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
@@ -59,39 +58,37 @@
   <div class="main container-fluid">
     <div class="row">
       <div class="column col-sm-6">
-        <textarea class="form-control" id="source"
-          placeholder="Paste Cyrillic text here"
-        ></textarea>
+        <textarea class="form-control" id="source" placeholder="Paste Cyrillic text here"></textarea>
+
+        <div class="space-replacement input-group">
+          <span class="input-group-addon">Presets</span>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option-ru" value="ru" autocomplete="off" checked="checked"> Russian
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option-uk" value="uk" autocomplete="off"> Ukrainian
+          </label>
+        </div>
+
         <div class="space-replacement input-group">
           <span class="input-group-addon">Space replacement</span>
           <input type="text" class="form-control text-center" id="space-rep">
         </div>
       </div>
       <div class="column col-sm-6">
-        <textarea class="form-control" id="result" 
-          readonly 
-          placeholder="Get converted text here"
-        ></textarea>
+        <textarea class="form-control" id="result" readonly placeholder="Get converted text here"></textarea>
       </div>
     </div>
-    
+
     <div class="text-center">
-      <a class="github-button" 
-        href="https://github.com/greybax" 
-        aria-label="Follow @greybax on GitHub"
-      >Follow @greybax</a>
+      <a class="github-button" href="https://github.com/greybax" aria-label="Follow @greybax on GitHub">Follow
+        @greybax</a>
 
-      <a class="github-button" 
-        href="https://github.com/greybax/cyrillic-to-translit-js" 
-        data-icon="octicon-star" 
-        aria-label="Star greybax/cyrillic-to-translit-js on GitHub"
-      >Star</a>
+      <a class="github-button" href="https://github.com/greybax/cyrillic-to-translit-js" data-icon="octicon-star"
+        aria-label="Star greybax/cyrillic-to-translit-js on GitHub">Star</a>
 
-      <a class="github-button" 
-        href="https://github.com/greybax/cyrillic-to-translit-js/fork" 
-        data-icon="octicon-repo-forked" 
-        aria-label="Fork greybax/cyrillic-to-translit-js on GitHub"
-      >Fork</a>
+      <a class="github-button" href="https://github.com/greybax/cyrillic-to-translit-js/fork"
+        data-icon="octicon-repo-forked" aria-label="Fork greybax/cyrillic-to-translit-js on GitHub">Fork</a>
     </div>
   </div>
 
@@ -104,27 +101,41 @@
       var $spaceRep = document.querySelector('#space-rep');
       var $result = document.querySelector('#result');
 
+      var $ru = document.querySelector('#option-ru');
+      var $uk = document.querySelector('#option-uk');
+
       var value;
       var spaceRep;
 
-      $source.addEventListener('input', function(e) {
+      $source.addEventListener('input', function (e) {
         update(value = e.target.value, spaceRep);
       });
 
-      $spaceRep.addEventListener('input', function(e) {
+      $spaceRep.addEventListener('input', function (e) {
         update(value, spaceRep = e.target.value);
-      })
+      });
+
+      $ru.addEventListener('click', function (e) {
+        update(value, spaceRep = e.target.value);
+      });
+
+      $uk.addEventListener('click', function (e) {
+        update(value, spaceRep = e.target.value);
+      });
 
       function update(value, spaceRep) {
-        $result.value = cyrillicToTranslit.transform(value, spaceRep);
+        if ($ru.checked) {
+          $result.value = cyrillicToTranslit({ preset: 'ru' }).transform(value, spaceRep);
+        } else if ($uk.checked) {
+          $result.value = cyrillicToTranslit({ preset: 'uk' }).transform(value, spaceRep);
+        }
       }
     }
   </script>
 
-  <script 
-    src="https://unpkg.com/cyrillic-to-translit-js@latest/CyrillicToTranslit.js"
-    onload="init(module.exports())"
-  ></script>
+  <script src="https://unpkg.com/cyrillic-to-translit-js@latest/CyrillicToTranslit.js"
+    onload="init(module.exports)"></script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+
 </html>
