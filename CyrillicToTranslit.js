@@ -74,15 +74,17 @@ module.exports = function cyrillicToTranslit(config) {
       return "";
     }
 
+    const normalizedInput = input.normalize()
+
     let newStr = "";
-    for (let i = 0; i < input.length; i++) {
-      const isUpperCaseOrWhatever = input[i] === input[i].toUpperCase();
-      let strLowerCase = input[i].toLowerCase();
+    for (let i = 0; i < normalizedInput.length; i++) {
+      const isUpperCaseOrWhatever = normalizedInput[i] === normalizedInput[i].toUpperCase();
+      let strLowerCase = normalizedInput[i].toLowerCase();
       if (strLowerCase === " " && spaceReplacement) {
         newStr += spaceReplacement;
         continue;
       }
-      let newLetter = _preset === "uk" && strLowerCase === "г" && i > 0 && input[i - 1].toLowerCase() === "з"
+      let newLetter = _preset === "uk" && strLowerCase === "г" && i > 0 && normalizedInput[i - 1].toLowerCase() === "з"
         ? "gh"
         : (i === 0 ? _firstLetterAssociations : _associations)[strLowerCase];
       if ("undefined" === typeof newLetter) {

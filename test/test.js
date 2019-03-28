@@ -16,6 +16,9 @@ describe('cyrillicToTranslit', () => {
       assert.equal("", cyrillicToTranslit().transform());
       assert.equal("", cyrillicToTranslit().transform(null));
     });
+    it('should return translit when cyrillic string not nomalized', () => {
+      assert.equal("russkii", cyrillicToTranslit().transform("русский".normalize('NFD')));
+    });
     it('should return translit when first parameter cyrillic', () => {
       assert.equal("privet mir!", cyrillicToTranslit().transform("привет мир!"));
     });
