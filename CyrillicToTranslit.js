@@ -74,7 +74,9 @@ module.exports = function cyrillicToTranslit(config) {
       return "";
     }
 
-    const normalizedInput = input.normalize()
+    // We must normalize string for transform all unicode chars to uniform form
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+    const normalizedInput = input.normalize();
 
     let newStr = "";
     for (let i = 0; i < normalizedInput.length; i++) {
