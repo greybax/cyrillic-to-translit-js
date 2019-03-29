@@ -84,6 +84,7 @@ Typescript supports starting form v2.0.0. See definitions [here](./CyrillicToTra
 * [Igor Deryabin](https://github.com/rodweb)
 * [makepost](https://github.com/makepost)
 * [Aleksey Kislov](https://github.com/evenfrost)
+* [Igor Kamyshev](https://github.com/igorkamyshev)
 
 
 ## License
