@@ -11,7 +11,7 @@
     "mocha-lcov-reporter": "1.3.0",
     "should": "13.2.3",
     "tslint": "5.17.0",
-    "typescript": "3.5.1"
+    "typescript": "3.5.2"
   },
   "scripts": {
     "coverage": "istanbul cover _mocha",
