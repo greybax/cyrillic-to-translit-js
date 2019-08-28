@@ -4,7 +4,16 @@
   "description": "Simple javascript function for converting Cyrillic symbols to Translit",
   "main": "CyrillicToTranslit",
   "typings": "CyrillicToTranslit",
+  "scripts": {
+    "coverage": "istanbul cover _mocha",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "size": "size-limit",
+    "test": "tsc && tslint *.ts && mocha && npm run size",
+    "tdd": "npm test -- --watch"
+  },
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^2.1.1",
     "coveralls": "3.0.6",
     "istanbul": "0.4.5",
     "mocha": "6.2.0",
@@ -13,13 +22,12 @@
     "tslint": "5.19.0",
     "typescript": "3.6.2"
   },
-  "scripts": {
-    "coverage": "istanbul cover _mocha",
-    "precoveralls": "npm run coverage",
-    "coveralls": "coveralls < coverage/lcov.info",
-    "test": "tsc && tslint *.ts && mocha",
-    "tdd": "npm test -- --watch"
-  },
+  "size-limit": [
+    {
+      "path": "CyrillicToTranslit.js",
+      "limit": "1.5 KB"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/greybax/CyrillicToTranslitJS.git"
