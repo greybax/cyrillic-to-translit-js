@@ -25,8 +25,8 @@ jobs:
         npm install
         npm run build --if-present
         npm test
-        npm run precoveralls
-        npm run coveralls
+        # npm run precoveralls
+        # npm run coveralls
       env:
         CI: true
 
