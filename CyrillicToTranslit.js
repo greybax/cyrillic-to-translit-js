@@ -188,8 +188,8 @@ module.exports = function cyrillicToTranslit(config) {
       let strLowerCase = normalizedInput[i].toLowerCase();
       let currentIndex = i;
 
-      if (strLowerCase === " ") {
-        spaceReplacement ? newStr += spaceReplacement : newStr += " ";
+      if (strLowerCase === " " || strLowerCase === spaceReplacement) {
+        newStr += " ";
         isWordBoundary = true;
         i++;
         continue;

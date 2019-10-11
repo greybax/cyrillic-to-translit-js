@@ -55,5 +55,8 @@ describe('cyrillicToTranslit', () => {
         cyrillicToTranslit({ preset: "uk" }).reverse("Rozghon Uliana i Harashchenko Khrystyna")
       );
     });
+    it('should return plain cyrillic with reversing translit with space replacement', () => {
+      assert.equal("привіт світе", cyrillicToTranslit({ preset: "uk" }).reverse("pryvit_svite", "_"));
+    });
   });
 });
