@@ -3,22 +3,18 @@
 module.exports = function cyrillicToTranslit(config) {
   const _preset = config ? config.preset : "ru";
 
-  const _firstLetterAssociations = {
+  /*
+  ASSOCIATIONS FOR INITIAL POSITION
+  */
+
+  // letters shared between languages
+  const _firstLetters = {
     "а": "a",
     "б": "b",
     "в": "v",
-    "ґ": "g",
-    "г": "g",
     "д": "d",
-    "е": "e",
-    "ё": "e",
-    "є": "ye",
-    "ж": "zh",
     "з": "z",
-    "и": "i",
-    "і": "i",
-    "ї": "yi",
-    "й": "i",
+    "й": "y",
     "к": "k",
     "л": "l",
     "м": "m",
@@ -30,44 +26,76 @@ module.exports = function cyrillicToTranslit(config) {
     "т": "t",
     "у": "u",
     "ф": "f",
-    "х": "h",
-    "ц": "c",
-    "ч": "ch",
-    "ш": "sh",
-    "щ": "sh'",
-    "ъ": "",
-    "ы": "i",
-    "ь": "",
-    "э": "e",
-    "ю": "yu",
-    "я": "ya",
+    "ь": ""
   };
 
-  if (_preset === "uk") {
-    Object.assign(_firstLetterAssociations, {
+  // language-specific letters
+  if (_preset === "ru") {
+    Object.assign(_firstLetters, {
+      "г": "g",
+      "и": "i",
+      "ъ": "",
+      "ы": "i",
+      "э": "e",
+    });
+  } else if (_preset === "uk") {
+    Object.assign(_firstLetters, {
       "г": "h",
+      "ґ": "g",
+      "е": "e",
       "и": "y",
-      "й": "y",
-      "х": "kh",
-      "ц": "ts",
-      "щ": "shch",
+      "і": "i",
       "'": "",
       "’": "",
       "ʼ": "",
-    });
+    })
   }
 
-  const _associations = Object.assign({}, _firstLetterAssociations);
+  // digraphs appearing only in initial position
+  const _initialDigraphs = (_preset === "ru") ? { "е": "ye" } : { "є": "ye", "ї": "yi" };
 
+  // digraphs appearing in all positions
+  const _regularDigraphs = {
+    "ё": "yo",
+    "ж": "zh",
+    "х": "kh",
+    "ц": "ts",
+    "ч": "ch",
+    "ш": "sh",
+    "щ": "shch",
+    "ю": "yu",
+    "я": "ya",
+  }
+
+  const _firstDigraphs = { ..._regularDigraphs, ..._initialDigraphs };
+
+  const _firstAssociations = { ..._firstLetters, ..._firstDigraphs };
+
+  /*
+  ASSOCIATIONS FOR NON-INITIAL POSITION
+  */
+
+  const _nonFirstLetters = { ..._firstLetters, "й": "i" };
+  if (_preset === "ru") {
+    Object.assign(_nonFirstLetters, { "е": "e" });
+  } else if (_preset === "uk") {
+    Object.assign(_nonFirstLetters, { "ї": "i" });
+  }
+
+  // digraphs appearing only in non-initial positions
+  let _nonInitialDigraphs = {};
   if (_preset === "uk") {
-    Object.assign(_associations, {
+    _nonInitialDigraphs = {
       "є": "ie",
-      "ї": "i",
-      "й": "i",
       "ю": "iu",
       "я": "ia",
-    });
+    };
   }
+
+  const _nonFirstDigraphs = { ..._regularDigraphs, ..._nonInitialDigraphs };
+
+  const _nonFirstAssociations = { ..._nonFirstLetters, ..._nonFirstDigraphs };
+
 
   function transform(input, spaceReplacement) {
     if (!input) {
@@ -88,7 +116,7 @@ module.exports = function cyrillicToTranslit(config) {
       }
       let newLetter = _preset === "uk" && strLowerCase === "г" && i > 0 && normalizedInput[i - 1].toLowerCase() === "з"
         ? "gh"
-        : (i === 0 ? _firstLetterAssociations : _associations)[strLowerCase];
+        : (i === 0 ? _firstAssociations : _nonFirstAssociations)[strLowerCase];
       if ("undefined" === typeof newLetter) {
         newStr += isUpperCaseOrWhatever ? strLowerCase.toUpperCase() : strLowerCase;
       }
