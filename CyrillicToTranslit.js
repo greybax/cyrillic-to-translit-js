@@ -107,21 +107,39 @@ module.exports = function cyrillicToTranslit(config) {
     const normalizedInput = input.normalize();
 
     let newStr = "";
+    let isWordBoundary = false;
+
     for (let i = 0; i < normalizedInput.length; i++) {
       const isUpperCaseOrWhatever = normalizedInput[i] === normalizedInput[i].toUpperCase();
       let strLowerCase = normalizedInput[i].toLowerCase();
-      if (strLowerCase === " " && spaceReplacement) {
-        newStr += spaceReplacement;
+
+      if (strLowerCase === " ") {
+        newStr += spaceReplacement ? spaceReplacement :  " ";
+        isWordBoundary = true;
         continue;
       }
-      let newLetter = _preset === "uk" && strLowerCase === "г" && i > 0 && normalizedInput[i - 1].toLowerCase() === "з"
-        ? "gh"
-        : (i === 0 ? _firstAssociations : _nonFirstAssociations)[strLowerCase];
+
+      let newLetter;
+      
+      if ( _preset === "uk" && normalizedInput.slice(i-1, i+1).toLowerCase() === "зг") {
+        // handle ukrainian special case зг > zgh
+        newLetter = "gh";
+      } else if (i === 0 || isWordBoundary) {
+        newLetter = _firstAssociations[strLowerCase];
+        isWordBoundary = false;
+      } else {
+        newLetter = _nonFirstAssociations[strLowerCase];
+      }
+
       if ("undefined" === typeof newLetter) {
         newStr += isUpperCaseOrWhatever ? strLowerCase.toUpperCase() : strLowerCase;
-      }
-      else {
-        newStr += isUpperCaseOrWhatever ? newLetter.toUpperCase() : newLetter;
+      } else if (isUpperCaseOrWhatever) {
+        // handle multi-symbol letters
+        newLetter.length > 1
+          ? newStr += newLetter[0].toUpperCase() + newLetter.slice(1)
+          : newStr += newLetter.toUpperCase();
+      } else {
+        newStr += newLetter;
       }
     }
     return newStr;
