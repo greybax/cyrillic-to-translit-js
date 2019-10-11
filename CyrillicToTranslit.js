@@ -1,6 +1,7 @@
 ﻿'use strict';
 
 module.exports = function cyrillicToTranslit(config) {
+  const invert = require('lodash.invert');
   const _preset = config ? config.preset : "ru";
 
   /*
@@ -51,6 +52,15 @@ module.exports = function cyrillicToTranslit(config) {
     })
   }
 
+  let _reversedFirstLetters;
+  if (_preset === "ru") {
+    // Russian: i > always и, y > й in initial position, e > э in initial position
+    _reversedFirstLetters = { ...invert(_firstLetters), "i": "и", "": "" };
+  } else if (_preset === "uk") {
+    // Ukrainian: i > always i, y > always и, e > always е
+    _reversedFirstLetters = { ...invert(_firstLetters), "": "" };
+  }
+
   // digraphs appearing only in initial position
   const _initialDigraphs = (_preset === "ru") ? { "е": "ye" } : { "є": "ye", "ї": "yi" };
 
@@ -69,6 +79,8 @@ module.exports = function cyrillicToTranslit(config) {
 
   const _firstDigraphs = { ..._regularDigraphs, ..._initialDigraphs };
 
+  const _reversedFirstDigraphs = { ...invert(_firstDigraphs) };
+
   const _firstAssociations = { ..._firstLetters, ..._firstDigraphs };
 
   /*
@@ -82,6 +94,20 @@ module.exports = function cyrillicToTranslit(config) {
     Object.assign(_nonFirstLetters, { "ї": "i" });
   }
 
+  let _reversedNonFirstLetters;
+  if (_preset === "ru") {
+    // Russian: i > always и, y > ы in non-initial position, e > е in non-initial position
+    _reversedNonFirstLetters = { ...invert(_firstLetters), ...{
+      "i": "и", 
+      "y": "ы",
+      "e": "е",
+      "": "" 
+    }};
+  } else if (_preset === "uk") {
+    // Ukrainian: i > always i, y > always и, e > always е
+    _reversedNonFirstLetters = { ...invert(_firstLetters), "": "" };
+  }
+
   // digraphs appearing only in non-initial positions
   let _nonInitialDigraphs = {};
   if (_preset === "uk") {
@@ -93,6 +119,8 @@ module.exports = function cyrillicToTranslit(config) {
   }
 
   const _nonFirstDigraphs = { ..._regularDigraphs, ..._nonInitialDigraphs };
+
+  const _reversedNonFirstDigraphs = { ...invert(_nonFirstDigraphs) };
 
   const _nonFirstAssociations = { ..._nonFirstLetters, ..._nonFirstDigraphs };
 
@@ -120,7 +148,7 @@ module.exports = function cyrillicToTranslit(config) {
       }
 
       let newLetter;
-      
+
       if ( _preset === "uk" && normalizedInput.slice(i-1, i+1).toLowerCase() === "зг") {
         // handle ukrainian special case зг > zgh
         newLetter = "gh";
@@ -145,7 +173,80 @@ module.exports = function cyrillicToTranslit(config) {
     return newStr;
   }
 
+  function reverse(input, spaceReplacement) {
+
+    if (!input) return "";
+
+    const normalizedInput = input.normalize();
+
+    let newStr = "";
+    let isWordBoundary = false;
+    let i = 0;
+
+    while (i < normalizedInput.length) {
+      const isUpperCaseOrWhatever = normalizedInput[i] === normalizedInput[i].toUpperCase();
+      let strLowerCase = normalizedInput[i].toLowerCase();
+      let currentIndex = i;
+
+      if (strLowerCase === " ") {
+        spaceReplacement ? newStr += spaceReplacement : newStr += " ";
+        isWordBoundary = true;
+        i++;
+        continue;
+      }
+      
+      let newLetter;
+
+      let digraph = normalizedInput.slice(i, i + 2).toLowerCase();
+      if (i === 0 || isWordBoundary) {
+        newLetter = _reversedFirstDigraphs[digraph];
+        if (newLetter) {
+          i += 2;
+        } else {
+          newLetter = _reversedFirstLetters[strLowerCase];
+          i++;
+        }
+        isWordBoundary = false;
+      } else {
+        newLetter = _reversedNonFirstDigraphs[digraph];
+        if (newLetter) {
+          i += 2;
+        } else {
+          newLetter = _reversedNonFirstLetters[strLowerCase];
+          i++;
+        }
+      }
+
+      // special cases: щ and зг
+      if (normalizedInput.slice(currentIndex, currentIndex + 4).toLowerCase() === "shch") {
+        newLetter = "щ";
+        i = currentIndex + 4;
+      } else if (normalizedInput.slice(currentIndex - 1, currentIndex + 2).toLowerCase() === "zgh") {
+        newLetter = "г";
+        i = currentIndex + 2;
+      }
+
+      if ("undefined" === typeof newLetter) {
+        newStr += isUpperCaseOrWhatever ? strLowerCase.toUpperCase() : strLowerCase;
+        i++;
+      }
+      else {
+        if (isUpperCaseOrWhatever) {
+            // handle multi-symbol letters
+            newLetter.length > 1
+              ? newStr += newLetter[0].toUpperCase() + newLetter.slice(1)
+              : newStr += newLetter.toUpperCase();
+        } else {
+            newStr += newLetter;
+        }
+      }
+    }
+
+    return newStr;
+  }
+
   return {
-    transform: transform
+    transform: transform,
+    reverse: reverse
   };
 };
