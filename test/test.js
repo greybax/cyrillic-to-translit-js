@@ -58,5 +58,8 @@ describe('cyrillicToTranslit', () => {
     it('should return plain cyrillic with reversing translit with space replacement', () => {
       assert.equal("привіт світе", cyrillicToTranslit({ preset: "uk" }).reverse("pryvit_svite", "_"));
     });
+    it('should return cyrillic if cyrillic is passed to reverse', () => {
+      assert.equal("привет мир!", cyrillicToTranslit().reverse("привет мир!"));
+    });
   });
 });

@@ -228,7 +228,6 @@ module.exports = function cyrillicToTranslit(config) {
 
       if ("undefined" === typeof newLetter) {
         newStr += isUpperCaseOrWhatever ? strLowerCase.toUpperCase() : strLowerCase;
-        i++;
       }
       else {
         if (isUpperCaseOrWhatever) {
