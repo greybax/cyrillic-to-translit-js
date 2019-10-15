@@ -88,13 +88,13 @@ Simple javascript function for converting Cyrillic symbols to Translit
 
 * **reverse()**
 ```js
-cyrillicToTranslit().reverse("ulitsa Soyuza Pechatnikov")
+  cyrillicToTranslit().reverse("ulitsa Soyuza Pechatnikov")
 
  >улица Союза Печатников
 ```
 
 ```js
-cyrillicToTranslit({ preset: "uk" }).reverse("Rozghon Uliana i Harashchenko Khrystyna")
+  cyrillicToTranslit({ preset: "uk" }).reverse("Rozghon Uliana i Harashchenko Khrystyna")
 
   >Розгон Уляна і Гаращенко Христина
 ```
