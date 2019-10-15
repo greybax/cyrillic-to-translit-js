@@ -49,29 +49,54 @@ Simple javascript function for converting Cyrillic symbols to Translit
 
 ### transform()
 
+> Convert Cyrillic symbols to Translit
+
 `cyrillicToTranslit().transform(input, spaceReplacement);`
+
+* `input` - string which should be transformed
+* `spaceReplacement` - symbol for space replacement
+
+### reverse()
+
+> Convert Translit symbols to Cyrillic
+
+`cyrillicToTranslit().reverse(input, spaceReplacement);`
 
 * `input` - string which should be transformed
 * `spaceReplacement` - symbol for space replacement
 
 ## Examples
 
-```javascript
+* **transform()**
+```js
   cyrillicToTranslit().transform('Привет Мир!');
 
   >Privet Mir!
 ```
 
-```javascript
+```js
   cyrillicToTranslit().transform('привет мир!', "_")
 
   >privet_mir!
 ```
 
-```javascript
+```js
   cyrillicToTranslit({ preset: "uk" }).transform('привіт світе!', "_")
 
   >pryvit_svite!
+```
+
+* **reverse()**
+```js
+cyrillicToTranslit().reverse("ulitsa Soyuza Pechatnikov")
+
+ >улица Союза Печатников
+```
+
+```js
+cyrillicToTranslit({ preset: "uk" }).reverse("Rozghon Uliana i Harashchenko Khrystyna")
+
+  >Розгон Уляна і Гаращенко Христина
 ```
 
 ## Typescript
@@ -87,6 +112,7 @@ Typescript supports starting form v2.0.0. See definitions [here](./CyrillicToTra
 * [makepost](https://github.com/makepost)
 * [Aleksey Kislov](https://github.com/evenfrost)
 * [Igor Kamyshev](https://github.com/igorkamyshev)
+* [Sasha Kirillov](https://github.com/sasha-kir)
 
 
 ## License
