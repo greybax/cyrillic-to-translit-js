@@ -9,4 +9,6 @@ declare class CyrillicToTranslit {
   constructor(config?: { preset: "ru" | "uk" });
 
   public transform(input: string, spaceReplacement?: string): string;
+
+  public reverse(input: string, spaceReplacement?: string): string;
 }
