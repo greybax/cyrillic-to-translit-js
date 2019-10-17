@@ -9,6 +9,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Anton|Barlow&display=swap');
+    body, html {
+      background: #96d1c7;
+    }
+
+    .navbar{
+      background: #00818a;
+    }
+    .navbar-brand strong {
+      font-family: 'Anton', sans-serif;
+      color: #ffffff;
+      font-size: 1.5em;
+    }
+    .navbar-text {
+      font-family: 'Barlow', sans-serif;
+      color: #ffffff;
+    }
     .container-fluid {
       max-width: 960px;
     }
@@ -46,9 +63,11 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <div class="navbar-brand">
-          greybax/cyrillic-to-translit-js
+          <strong> Greybax </strong>
+          <small style="font-family: 'Barlow', sans-serif;
+          color: #1c0a70; font-size: 1em;">Cyrillic-to-Translit-js</small>
         </div>
-        <p class="navbar-text">
+        <p class="navbar-text" style="color: #ffffff">
           Simple javascript function for converting Cyrillic symbols to Translit
         </p>
       </div>
