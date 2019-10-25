@@ -93,48 +93,42 @@
   </div>
 
   <script>
-    // CommonJS Workaround
-    var module = {};
+    var $source = document.querySelector('#source');
+    var $spaceRep = document.querySelector('#space-rep');
+    var $result = document.querySelector('#result');
 
-    function init(cyrillicToTranslit) {
-      var $source = document.querySelector('#source');
-      var $spaceRep = document.querySelector('#space-rep');
-      var $result = document.querySelector('#result');
+    var $ru = document.querySelector('#option-ru');
+    var $uk = document.querySelector('#option-uk');
 
-      var $ru = document.querySelector('#option-ru');
-      var $uk = document.querySelector('#option-uk');
+    var value;
+    var spaceRep;
 
-      var value;
-      var spaceRep;
+    $source.addEventListener('input', function (e) {
+      update(value = e.target.value, spaceRep);
+    });
 
-      $source.addEventListener('input', function (e) {
-        update(value = e.target.value, spaceRep);
-      });
+    $spaceRep.addEventListener('input', function (e) {
+      update(value, spaceRep = e.target.value);
+    });
 
-      $spaceRep.addEventListener('input', function (e) {
-        update(value, spaceRep = e.target.value);
-      });
+    $ru.addEventListener('click', function (e) {
+      update(value, spaceRep = $spaceRep.value);
+    });
 
-      $ru.addEventListener('click', function (e) {
-        update(value, spaceRep = $spaceRep.value);
-      });
+    $uk.addEventListener('click', function (e) {
+      update(value, spaceRep = $spaceRep.value);
+    });
 
-      $uk.addEventListener('click', function (e) {
-        update(value, spaceRep = $spaceRep.value);
-      });
-
-      function update(value, spaceRep) {
-        if ($ru.checked) {
-          $result.value = cyrillicToTranslit({ preset: 'ru' }).transform(value, spaceRep);
-        } else if ($uk.checked) {
-          $result.value = cyrillicToTranslit({ preset: 'uk' }).transform(value, spaceRep);
-        }
+    function update(value, spaceRep) {
+      if ($ru.checked) {
+        $result.value = cyrillicToTranslit({ preset: 'ru' }).transform(value, spaceRep);
+      } else if ($uk.checked) {
+        $result.value = cyrillicToTranslit({ preset: 'uk' }).transform(value, spaceRep);
       }
     }
   </script>
 
-  <script src="https://unpkg.com/cyrillic-to-translit-js@latest/CyrillicToTranslit.js"
-    onload="init(module.exports)"></script>
+  <script src="https://unpkg.com/cyrillic-to-translit-js@latest/dist/bundle.js"></script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
