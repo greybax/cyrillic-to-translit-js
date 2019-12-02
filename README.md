@@ -114,6 +114,9 @@ Typescript supports starting form v2.0.0. See definitions [here](./CyrillicToTra
 * [Igor Kamyshev](https://github.com/igorkamyshev)
 * [Sasha Kirillov](https://github.com/sasha-kir)
 
+## Why I've done this plugin?
+
+https://alfilatov.com/posts/cyrillic-to-translit-js-library-for-converting-cyrillic-symbols-to-translit-and-vice-versa/
 
 ## License
 
