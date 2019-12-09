@@ -28,7 +28,7 @@
 [depstat-dev-image]: https://david-dm.org/greybax/cyrillic-to-translit-js/dev-status.svg
 
 
-Ultra-lightweight JavaScript function for converting Cyrillic symbols to Translit and back
+Ultra-lightweight JavaScript library for converting Cyrillic symbols to Translit and vice versa
 
 [Demo page](https://greybax.github.io/cyrillic-to-translit-js)
 
