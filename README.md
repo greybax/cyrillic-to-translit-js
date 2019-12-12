@@ -1,5 +1,5 @@
 # cyrillic-to-translit-js
-
+ 
 [![Codeship Status for greybax/cyrillic-to-translit-js](https://app.codeship.com/projects/9666e180-f1e1-0136-edda-0a4322211bb2/status?branch=master)](https://app.codeship.com/projects/320439)
 
 [![NPM version][npm-image]][npm-url]
@@ -27,6 +27,11 @@
 [depstat-dev-url]: https://david-dm.org/greybax/cyrillic-to-translit-js
 [depstat-dev-image]: https://david-dm.org/greybax/cyrillic-to-translit-js/dev-status.svg
 
+<p align="center">
+ <a href="https://greybax.github.com/cyrillic-to-translit-js">
+   <img src="images/translit-256w.png">
+ </a>
+</p>
 
 Ultra-lightweight JavaScript library for converting Cyrillic symbols to Translit and vice versa
 
