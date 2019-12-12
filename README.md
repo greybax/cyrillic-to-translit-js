@@ -118,6 +118,7 @@ Typescript supports starting form v2.0.0. See definitions [here](./CyrillicToTra
 * [Aleksey Kislov](https://github.com/evenfrost)
 * [Igor Kamyshev](https://github.com/igorkamyshev)
 * [Sasha Kirillov](https://github.com/sasha-kir)
+* [Booglejr](https://github.com/Rootyjr)
 
 ## Why I've done this plugin?
 
