@@ -14,7 +14,7 @@
     "browser": "browserify CyrillicToTranslit.js --standalone cyrillicToTranslit -o dist/bundle.js"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "3.0.0",
+    "@size-limit/preset-small-lib": "3.0.1",
     "coveralls": "3.0.9",
     "istanbul": "0.4.5",
     "mocha": "7.0.1",
