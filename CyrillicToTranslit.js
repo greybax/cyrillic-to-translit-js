@@ -55,10 +55,10 @@ module.exports = function cyrillicToTranslit(config) {
   let _reversedFirstLetters;
   if (_preset === "ru") {
     // Russian: i > always и, y > й in initial position, e > э in initial position
-    _reversedFirstLetters = Object.assign(invert(_firstLetters), { "i": "и", "": "" });
+    _reversedFirstLetters = { ...invert(_firstLetters), "i": "и", "": "" };
   } else if (_preset === "uk") {
     // Ukrainian: i > always i, y > always и, e > always е
-    _reversedFirstLetters = Object.assign(invert(_firstLetters), { "": "" });
+    _reversedFirstLetters = { ...invert(_firstLetters), "": "" };
   }
 
   // digraphs appearing only in initial position
@@ -77,17 +77,17 @@ module.exports = function cyrillicToTranslit(config) {
     "я": "ya",
   }
 
-  const _firstDigraphs = Object.assign({}, _regularDigraphs, _initialDigraphs);
+  const _firstDigraphs = { ..._regularDigraphs, ..._initialDigraphs };
 
-  const _reversedFirstDigraphs = Object.assign(invert(_firstDigraphs));
+  const _reversedFirstDigraphs = { ...invert(_firstDigraphs) };
 
-  const _firstAssociations = Object.assign(_firstLetters, _firstDigraphs);
+  const _firstAssociations = { ..._firstLetters, ..._firstDigraphs };
 
   /*
   ASSOCIATIONS FOR NON-INITIAL POSITION
   */
 
-  const _nonFirstLetters = Object.assign({}, _firstLetters, { "й": "i" });
+  const _nonFirstLetters = { ..._firstLetters, "й": "i" };
   if (_preset === "ru") {
     Object.assign(_nonFirstLetters, { "е": "e" });
   } else if (_preset === "uk") {
@@ -97,15 +97,15 @@ module.exports = function cyrillicToTranslit(config) {
   let _reversedNonFirstLetters;
   if (_preset === "ru") {
     // Russian: i > always и, y > ы in non-initial position, e > е in non-initial position
-    _reversedNonFirstLetters = Object.assign(invert(_firstLetters), {
+    _reversedNonFirstLetters = { ...invert(_firstLetters), ...{
       "i": "и", 
       "y": "ы",
       "e": "е",
       "": "" 
-    });
+    }};
   } else if (_preset === "uk") {
     // Ukrainian: i > always i, y > always и, e > always е
-    _reversedNonFirstLetters = Object.assign(invert(_firstLetters), { "": "" });
+    _reversedNonFirstLetters = { ...invert(_firstLetters), "": "" };
   }
 
   // digraphs appearing only in non-initial positions
@@ -118,11 +118,11 @@ module.exports = function cyrillicToTranslit(config) {
     };
   }
 
-  const _nonFirstDigraphs = Object.assign(_regularDigraphs, _nonInitialDigraphs);
+  const _nonFirstDigraphs = { ..._regularDigraphs, ..._nonInitialDigraphs };
 
-  const _reversedNonFirstDigraphs = Object.assign(invert(_nonFirstDigraphs));
+  const _reversedNonFirstDigraphs = { ...invert(_nonFirstDigraphs) };
 
-  const _nonFirstAssociations = Object.assign(_nonFirstLetters, _nonFirstDigraphs);
+  const _nonFirstAssociations = { ..._nonFirstLetters, ..._nonFirstDigraphs };
 
 
   function transform(input, spaceReplacement) {
