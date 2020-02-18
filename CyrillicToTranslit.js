@@ -77,7 +77,7 @@ module.exports = function cyrillicToTranslit(config) {
     "я": "ya",
   }
 
-  const _firstDigraphs = Object.assign(_regularDigraphs, _initialDigraphs);
+  const _firstDigraphs = Object.assign({}, _regularDigraphs, _initialDigraphs);
 
   const _reversedFirstDigraphs = Object.assign(invert(_firstDigraphs));
 
@@ -87,7 +87,7 @@ module.exports = function cyrillicToTranslit(config) {
   ASSOCIATIONS FOR NON-INITIAL POSITION
   */
 
-  const _nonFirstLetters = Object.assign(_firstLetters, { "й": "i" });
+  const _nonFirstLetters = Object.assign({}, _firstLetters, { "й": "i" });
   if (_preset === "ru") {
     Object.assign(_nonFirstLetters, { "е": "e" });
   } else if (_preset === "uk") {
