@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "3.0.1",
+    "browserify": "^16.5.0",
     "coveralls": "3.1.0",
     "istanbul": "0.4.5",
     "mocha": "7.2.0",
@@ -47,8 +48,7 @@
     "url": "https://github.com/greybax/CyrillicToTranslitJS/issues"
   },
   "homepage": "https://github.com/greybax/CyrillicToTranslitJS#readme",
-  "dependencies": {
-    "browserify": "^16.5.0",
+  "dependencies": {    
     "lodash.invert": "^4.3.0"
   }
 }
