@@ -6,8 +6,6 @@
 [![NPM Downloads/month][npm-downloads-image]][npm-downloads-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
-[![Dependency Status][depstat-image]][depstat-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
 [npm-url]: https://npmjs.org/package/cyrillic-to-translit-js
 [npm-image]: https://img.shields.io/npm/v/cyrillic-to-translit-js.svg
@@ -20,12 +18,6 @@
 
 [coveralls-url]: https://coveralls.io/r/greybax/cyrillic-to-translit-js
 [coveralls-image]: https://img.shields.io/coveralls/greybax/cyrillic-to-translit-js.svg
-
-[depstat-url]: https://david-dm.org/greybax/cyrillic-to-translit-js
-[depstat-image]: https://david-dm.org/greybax/cyrillic-to-translit-js.svg
-
-[depstat-dev-url]: https://david-dm.org/greybax/cyrillic-to-translit-js
-[depstat-dev-image]: https://david-dm.org/greybax/cyrillic-to-translit-js/dev-status.svg
 
 <p align="center">
  <a href="https://greybax.github.com/cyrillic-to-translit-js">
