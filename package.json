@@ -48,7 +48,7 @@
     "url": "https://github.com/greybax/CyrillicToTranslitJS/issues"
   },
   "homepage": "https://github.com/greybax/CyrillicToTranslitJS#readme",
-  "dependencies": {    
+  "dependencies": {
     "lodash.invert": "^4.3.0"
   }
 }

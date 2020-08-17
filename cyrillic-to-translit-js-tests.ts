@@ -1,6 +1,6 @@
 // This code does not run, but it is type-checked.
+import cyrillicToTranslit from '.';
 
-import CyrillicToTranslit = require(".");
-new CyrillicToTranslit().transform("привет мир!");
-new CyrillicToTranslit().transform("привет мир!", "_");
-new CyrillicToTranslit({ preset: "uk" }).transform("привіт світе!", "_");
+cyrillicToTranslit().transform("привет мир!");
+cyrillicToTranslit().transform("привет мир!", "_");
+cyrillicToTranslit({ preset: "uk" }).transform("привіт світе!", "_");
