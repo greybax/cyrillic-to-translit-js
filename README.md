@@ -35,6 +35,14 @@ Ultra-lightweight JavaScript library for converting Cyrillic symbols to Translit
 
 ## Simple to use
 
+```ts
+import CyrillicToTranslit from 'cyrillic-to-translit-js';
+
+const cyrillicToTranslit = new CyrillicToTranslit();
+
+cyrillicToTranslit.transform('Какая-то строка', '_').toLowerCase();
+```
+
 ### Constructor
 
 * `{ preset: ru }` or _**empty**_ - transliteration preset for Russian language.
