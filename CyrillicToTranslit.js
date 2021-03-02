@@ -50,6 +50,16 @@ module.exports = function cyrillicToTranslit(config) {
       "’": "",
       "ʼ": "",
     })
+  } else if (_preset === "mn") {
+    Object.assign(_firstLetters, {
+      "г": "g",
+      "ө": "o",
+      "ү": "u",
+      "и": "i",
+      "ы": "y",
+      "э": "e",
+      "ъ": ""
+    })
   }
 
   let _reversedFirstLetters;
@@ -58,6 +68,8 @@ module.exports = function cyrillicToTranslit(config) {
     _reversedFirstLetters = Object.assign(invert(_firstLetters), { "i": "и", "": "" });
   } else if (_preset === "uk") {
     // Ukrainian: i > always i, y > always и, e > always е
+    _reversedFirstLetters = Object.assign(invert(_firstLetters), { "": "" });
+  } else if (_preset === "mn") {
     _reversedFirstLetters = Object.assign(invert(_firstLetters), { "": "" });
   }
 
@@ -92,6 +104,8 @@ module.exports = function cyrillicToTranslit(config) {
     Object.assign(_nonFirstLetters, { "е": "e" });
   } else if (_preset === "uk") {
     Object.assign(_nonFirstLetters, { "ї": "i" });
+  } else if (_preset === "mn") {
+    Object.assign(_nonFirstLetters, { "е": "e" });
   }
 
   let _reversedNonFirstLetters;
