@@ -1,4 +1,4 @@
-type CyrillicToTranslit = (config?: { preset: "ru" | "uk" }) => {
+type CyrillicToTranslit = (config?: { preset: "ru" | "uk" | "mn" }) => {
   transform(input: string, spaceReplacement?: string): string;
   reverse(input: string, spaceReplacement?: string): string;
 }
