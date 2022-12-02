@@ -26,7 +26,7 @@
  </a>
 </p>
 
-Ultra-lightweight JavaScript library for converting Cyrillic symbols to Translit and vice versa
+Lightweight JavaScript library for converting Cyrillic symbols to Translit and vice versa
 
 [Demo page](https://greybax.github.io/cyrillic-to-translit-js)
 
