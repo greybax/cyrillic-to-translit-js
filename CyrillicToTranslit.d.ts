@@ -1,8 +1,5 @@
-type CyrillicToTranslit = (config?: { preset: "ru" | "uk" | "mn" }) => {
-  transform(input: string, spaceReplacement?: string): string;
-  reverse(input: string, spaceReplacement?: string): string;
+export declare class CyrillicToTranslit {
+  reverse: (input: string, spaceReplacement?: string) => string;
+  transform: (input: string, spaceReplacement?: string) => string;
+  constructor(config?: { preset: 'ru' | 'uk' | 'mn' });
 }
-
-declare const cyrillicToTranslit: CyrillicToTranslit
-
-export default cyrillicToTranslit
