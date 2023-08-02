@@ -1,6 +1,4 @@
 # cyrillic-to-translit-js
- 
-[![Codeship Status for greybax/cyrillic-to-translit-js](https://app.codeship.com/projects/9666e180-f1e1-0136-edda-0a4322211bb2/status?branch=master)](https://app.codeship.com/projects/320439)
 
 [![install size](https://packagephobia.com/badge?p=cyrillic-to-translit-js@3.2.1)](https://packagephobia.com/result?p=cyrillic-to-translit-js@3.2.1)
 [![NPM version][npm-image]][npm-url]
